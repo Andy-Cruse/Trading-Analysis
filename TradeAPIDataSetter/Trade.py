@@ -8,8 +8,8 @@ from secrets import Secrets
 
 class Trade:
     def __init__(self):
-        sec = Secrets()
-        self.stocks = pd.read_csv('sp_500_stocks.csv')
+        sec = Secrets() #API key stored in secrets.py
+        self.stocks = pd.read_csv('sp_500_stocks.csv') 
         self.token = sec.api_token
 
     ### Returns full JSON from API call
@@ -32,8 +32,8 @@ class Trade:
                         data['marketCap'],
                         trade.shares_to_buy(1000)
                     ],
-                    index=my_columns),
-                ignore_index=True
+                    index = my_columns),
+                ignore_index = True
             )
         return final_dataframe
 
